@@ -1,0 +1,16 @@
+{
+  "name": "mongtube",
+  "version": "1.0.0",
+  "description": "Videos from Mongshil",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WooJin1030/Mongtube.git"
+  },
+  "author": "Woojin Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WooJin1030/Mongtube/issues"
+  },
+  "homepage": "https://github.com/WooJin1030/Mongtube#readme"
+}
