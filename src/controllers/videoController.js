@@ -40,6 +40,8 @@ export const postUpload = async (req, res) => {
 
   // console.log(title, description, hashtags);
   try {
+    // const video = new Video{}
+    // await video.save()
     await Video.create({
       title,
       description,
@@ -52,6 +54,4 @@ export const postUpload = async (req, res) => {
       errorMessage: error._message,
     });
   }
-
-  return res.redirect("/");
 };
