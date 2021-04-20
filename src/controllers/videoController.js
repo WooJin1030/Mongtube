@@ -5,18 +5,22 @@ export const home = async (req, res) => {
   return res.render("home", { pageTitle: "Home", videos });
 };
 
-export const watch = (req, res) => {
+export const watch = async (req, res) => {
   const {
     params: { id },
   } = req;
   // console.log(id);
-  return res.render("watch", { pageTitle: `Watching` });
+  const video = await Video.findById(id);
+  console.log(video);
+
+  return res.render("watch", { pageTitle: `${video.title}`, video });
 };
 
 export const getEdit = (req, res) => {
   const {
     params: { id },
   } = req;
+
   res.render("edit", { pageTitle: `Editing` });
 };
 
@@ -38,7 +42,6 @@ export const postUpload = async (req, res) => {
     body: { title, description, hashtags },
   } = req;
 
-  // console.log(title, description, hashtags);
   try {
     // const video = new Video{}
     // await video.save()
