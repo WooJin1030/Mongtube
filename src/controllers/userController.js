@@ -240,4 +240,16 @@ export const postChangePassword = async (req, res) => {
   return res.redirect("/users/logout");
 };
 
-export const see = (req, res) => res.send("See");
+export const see = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+
+  const user = await User.findById(id);
+
+  if (!user) {
+    res.status(404).render("404");
+  }
+
+  return res.render("profile", { pageTitle: `${user.name} Profile`, user });
+};
