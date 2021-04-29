@@ -51,7 +51,7 @@ export const postLogin = async (req, res) => {
     body: { username, password },
   } = req;
   const pageTitle = "Login";
-  const user = await User.findOne({ username });
+  const user = await User.findOne({ username, socialOnly: false });
 
   if (!user) {
     return res.status(400).render("login", {
@@ -117,7 +117,7 @@ export const finishGithubLogin = async (req, res) => {
         },
       })
     ).json();
-    console.log(userData);
+    // console.log(userData);
 
     const emailData = await (
       await fetch(`${apiUrl}/user/emails`, {
@@ -134,14 +134,11 @@ export const finishGithubLogin = async (req, res) => {
       return res.redirect("/login");
     }
 
-    const existingUsers = await User.findOne({ email: emailObj.email });
+    let user = await User.findOne({ email: emailObj.email });
 
-    if (existingUsers) {
-      req.session.loggedIn = true;
-      req.session.user = existingUsers;
-      return res.redirect("/");
-    } else {
-      const user = await User.create({
+    if (!user) {
+      user = await User.create({
+        avatarUrl: userData.avatar_url,
         name: userData.name,
         email: emailObj.email,
         username: userData.login,
@@ -149,11 +146,10 @@ export const finishGithubLogin = async (req, res) => {
         socialOnly: true,
         location: userData.location,
       });
-
-      req.session.loggedIn = true;
-      req.session.user = user;
-      return res.redirect("/");
     }
+    req.session.loggedIn = true;
+    req.session.user = user;
+    return res.redirect("/");
   } else {
     return res.redirect("/login");
   }
