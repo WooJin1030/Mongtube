@@ -17,7 +17,6 @@ userRouter.get("/github/start", startGithubLogin);
 userRouter.get("/github/finish", finishGithubLogin);
 
 userRouter.get("/logout", logout);
-
 userRouter.get(":/id", see);
 
 export default userRouter;

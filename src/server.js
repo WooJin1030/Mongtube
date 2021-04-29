@@ -6,7 +6,7 @@ import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import { localsMiddleware } from "./middlewares/middlewares";
-import { Mongoose } from "mongoose";
+// import { Mongoose } from "mongoose";
 
 const app = express();
 const logger = morgan("dev");
@@ -45,7 +45,7 @@ app.use(localsMiddleware);
 // });
 
 app.use("/", rootRouter);
-app.use("/videos", videoRouter);
 app.use("/users", userRouter);
+app.use("/videos", videoRouter);
 
 export default app;
