@@ -1,4 +1,15 @@
 extends base 
-    
+include mixins/video
+
 block content 
-    h1 Hello
+
+    ul
+        li 
+            img(src=`${user.avatarUrl}` width="100" height="100")
+        li 
+            span=user.name
+
+    each video in user.videos
+        +video(video)
+    else 
+        li Sorry nothing found.

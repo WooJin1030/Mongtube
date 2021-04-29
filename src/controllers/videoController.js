@@ -1,4 +1,5 @@
 import Video from "../models/Video";
+import User from "../models/User";
 
 export const home = async (req, res) => {
   const videos = await Video.find({}).sort({ createdAt: "desc" });
@@ -9,8 +10,7 @@ export const watch = async (req, res) => {
   const {
     params: { id },
   } = req;
-  const video = await Video.findById(id);
-
+  const video = await Video.findById(id).populate("owner");
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
   }
@@ -56,6 +56,9 @@ export const getUpload = (req, res) => {
 
 export const postUpload = async (req, res) => {
   const {
+    session: {
+      user: { _id },
+    },
     file: { path: fileUrl },
     body: { title, description, hashtags },
   } = req;
@@ -63,12 +66,18 @@ export const postUpload = async (req, res) => {
   try {
     // const video = new Video{}
     // await video.save()
-    await Video.create({
+    const newVideo = await Video.create({
       title,
       description,
       fileUrl,
+      owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
+
+    const user = await User.findById(_id);
+    user.videos.push(newVideo._id);
+    user.save();
+
     return res.redirect("/");
   } catch (error) {
     return res.status(400).render("upload", {
