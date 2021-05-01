@@ -1,4 +1,14 @@
-@import "./_variables";
+// configs
+
+@import "./configs/_variables.scss";
+@import "./configs/_resets.scss";
+
+// components
+
+// screens
+
+// defaults
+
 body {
   background-color: $red;
   color: $color;
