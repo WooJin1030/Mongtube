@@ -1,8 +1,10 @@
 header 
-    nav
-        ul 
-            li 
-                a(href="/") Home
+    nav.header 
+        a.header__column(href="/")
+            i.fas.fa-paw    
+            span.header__title MongTube
+
+        ul.header__column
             if loggedIn
                 li 
                     a(href="videos/upload") Upload Video

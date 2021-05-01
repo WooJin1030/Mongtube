@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  margin-bottom: 50px;
+
+  .header__column {
+    display: flex;
+    font-size: 24px;
+    padding: 32px 0;
+    color: $mongcolor;
+
+    .header__title {
+      font-size: 32px;
+    }
+
+    &:first-child {
+      margin-left: 24px;
+      i {
+        margin-right: 4px;
+        color: black;
+        font-size: 32px;
+      }
+    }
+
+    &:last-child {
+      margin-right: 16px;
+
+      li {
+        margin-right: 32px;
+        transition: all 300ms ease-in;
+
+        a {
+          color: $mongcolor;
+          transition: all 300ms ease-in;
+
+          &:hover {
+            color: black;
+          }
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

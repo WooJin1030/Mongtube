@@ -5,11 +5,23 @@
 
 // components
 
+@import "./components/header.scss";
+
 // screens
+
+@import "./screens/home.scss";
 
 // defaults
 
 body {
-  background-color: $red;
-  color: $color;
+  background-color: aliceblue;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+main {
+  min-height: 70vh;
 }
