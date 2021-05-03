@@ -1,14 +1,21 @@
 extends base
 
 block content 
-    video(src="/" + video.fileUrl controls)
-    div
+    .video__player
+        video(src="/" + video.fileUrl controls width="250" height="250")
+    div.video__description
+        h4=video.title
+        ul
+            each hashtag in video.hashtags
+                li=hashtag
         p=video.description
         small=video.createdAt
         br
-        small Uploaded by  
-            a(href=`/users/${video.owner._id}`)=video.owner.name
+        .video__owner
+            small Uploaded by  
+                a(href=`/users/${video.owner._id}`)=video.owner.name
     if String(video.owner._id) === String(loggedInUser._id)
-        a(href=`${video._id}/edit`) Edit Video &rarr;
-        br
-        a(href=`${video._id}/delete`) Delete Video &rarr;
+        .video__btns
+            a(href=`${video._id}/edit` class="video__editBtn") Edit Video &rarr;
+            br
+            a(href=`${video._id}/delete` class="video__deleteBtn") Delete Video &rarr;

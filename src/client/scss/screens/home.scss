@@ -7,6 +7,7 @@
     .video-block__video {
       margin-right: 48px;
       margin-bottom: 48px;
+      text-align: center;
 
       video {
         background-color: black;
@@ -14,8 +15,7 @@
         height: 166px;
       }
 
-      p,
-      ul {
+      p {
         width: 296px;
         display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -34,23 +34,12 @@
         word-wrap: break-word;
       }
 
-      h4,
-      p,
-      ul {
+      h4 {
         margin: 4px 0;
       }
 
       h4 {
         text-align: center;
-      }
-
-      ul {
-        display: flex;
-        color: blue;
-
-        li {
-          margin-right: 4px;
-        }
       }
 
       small {

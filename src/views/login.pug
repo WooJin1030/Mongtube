@@ -7,9 +7,11 @@ block content
     form(method="POST")
         input(placeholder="Username" name="username" type="text", required)
         input(placeholder="Password" name="password" type="password", required)
-        input(value="Join" type="submit")
+        input(value="Log In" type="submit")
         br
-        a(href="/users/github/start") Continue with Github &rarr;
+        a(href="/users/github/start" class="githubLogin") 
+            i.fab.fa-github
+            |Continue with Github &rarr;
     hr
     div.form__link  
         span Don't have an account? 
