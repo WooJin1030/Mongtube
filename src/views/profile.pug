@@ -3,13 +3,15 @@ include mixins/video
 
 block content 
 
-    ul
-        li 
-            img(src=`${user.avatarUrl}` width="100" height="100")
-        li 
-            span=user.name
+    .profile__container
+        ul
+            li 
+                img(src=`${user.avatarUrl}` width="100" height="100")
+            li 
+                span=user.name
 
-    each video in user.videos
-        +video(video)
-    else 
-        li Sorry nothing found.
+    .home__container
+        each video in user.videos
+            +video(video)
+        else 
+            li Sorry nothing found.

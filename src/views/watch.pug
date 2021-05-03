@@ -9,11 +9,15 @@ block content
             each hashtag in video.hashtags
                 li=hashtag
         p=video.description
-        small=video.createdAt
         br
         .video__owner
             small Uploaded by  
                 a(href=`/users/${video.owner._id}`)=video.owner.name
+        small.video__date #{video.createdAt}
+        br
+        br
+        small 조회수 #{video.meta.views}회 
+
     if String(video.owner._id) === String(loggedInUser._id)
         .video__btns
             a(href=`${video._id}/edit` class="video__editBtn") Edit Video &rarr;

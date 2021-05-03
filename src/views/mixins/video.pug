@@ -2,10 +2,14 @@ mixin video(video)
     div.video-block
         div.video-block__video
             video(src="/" + video.fileUrl)
-            h4
-                a(href=`/videos/${video.id}`)=video.title
-            p=video.description
-
-            small=video.createdAt
-        
-    
+            .video-block__video__data
+                .video-block__video__img
+                    if video.owner.avatarUrl
+                        img(src=`${video.owner.avatarUrl}`)  
+                    
+                .video-block__video__meta     
+                    h4
+                        a(href=`/videos/${video.id}`)=video.title
+                    small=video.owner.name        
+                    small=video.createdAt    
+                    small 조회수 #{video.meta.views}회    
