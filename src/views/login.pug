@@ -2,7 +2,8 @@ extends base
 
 block content 
     if errorMessage 
-        span=errorMessage
+        .form__errorMessage
+            span=errorMessage
     form(method="POST")
         input(placeholder="Username" name="username" type="text", required)
         input(placeholder="Password" name="password" type="password", required)
@@ -10,6 +11,6 @@ block content
         br
         a(href="/users/github/start") Continue with Github &rarr;
     hr
-    div 
+    div.form__link  
         span Don't have an account? 
         a(href="/join") Create one now &rarr;

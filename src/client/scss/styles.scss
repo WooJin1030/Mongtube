@@ -7,15 +7,23 @@
 
 @import "./components/header.scss";
 @import "./components/footer.scss";
+@import "./components/form.scss";
 
 // screens
 
 @import "./screens/home.scss";
+@import "./screens/edit-profile.scss";
 
 // defaults
 
+header,
+footer,
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 body {
-  background-color: aliceblue;
+  background-color: $bgcolor;
 }
 
 a {
