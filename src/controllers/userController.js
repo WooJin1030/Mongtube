@@ -246,7 +246,12 @@ export const see = async (req, res) => {
     params: { id },
   } = req;
 
-  const user = await User.findById(id).populate("videos");
+  const user = await User.findById(id).populate({
+    path: "videos",
+    populate: {
+      path: "owner",
+    },
+  });
 
   if (!user) {
     res.status(404).render("404");

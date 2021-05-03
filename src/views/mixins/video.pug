@@ -4,8 +4,7 @@ mixin video(video)
             video(src="/" + video.fileUrl)
             .video-block__video__data
                 .video-block__video__img
-                    if video.owner.avatarUrl
-                        img(src=`${video.owner.avatarUrl}`)  
+                    img(src=`${video.owner.avatarUrl}`)  
                     
                 .video-block__video__meta     
                     h4
@@ -13,3 +12,4 @@ mixin video(video)
                     small=video.owner.name        
                     small=video.createdAt    
                     small 조회수 #{video.meta.views}회    
+            
