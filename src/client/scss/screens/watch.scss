@@ -13,7 +13,7 @@
       margin-right: auto;
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: 24px;
 
       display: flex;
       justify-content: space-around;
@@ -41,11 +41,11 @@
 
       #timeLine {
         position: absolute;
-        bottom: 36px;
-        margin-left: auto;
-        margin-right: auto;
+        bottom: 48px;
         left: 0;
         right: 0;
+        margin-left: auto;
+        margin-right: auto;
         text-align: center;
         width: 85%;
         height: 4px;
