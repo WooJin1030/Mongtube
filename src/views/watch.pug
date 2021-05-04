@@ -2,40 +2,44 @@ extends base
 
 block content 
     .video__player
-        #videoContainer
-            video(src="/" + video.fileUrl width="250" height="250")
-            div#videoControls 
-                button#play Play
-                button#mute Mute
-                input(type="range", step="0.1", value=0.5, min="0", max="1")#volume
-                div
+        .videoContainer
+            video(src="/" + video.fileUrl)
+            div.videoControls.hidden
+                .videoDivide
+                    button#play 
+                        i.fas.fa-play
+                    button#mute 
+                        i.fas.fa-volume-up
+                    input(type="range", step="0.1", value=0.5, min="0", max="1")#volume
+                    
                     span#currentTime 00:00:00
                     span  / 
                     span#totalTime 00:00:00
                 div 
                     input(type="range", step="1", value=0, min="0")#timeLine
                 div 
-                    button#fullScreen Enter Full Screen
+                    button#fullScreen 
+                        i.fas.fa-expand-alt
 
-    //- div.video__description
-        //- h4=video.title
-        //- ul
-        //-     each hashtag in video.hashtags
-        //-         li=hashtag
-        //- p=video.description
-        //- br
-        //- .video__owner
-        //-     small Uploaded by  
-        //-         a(href=`/users/${video.owner._id}`)=video.owner.name
-        //- small.video__date #{video.createdAt}
-        //- br
-        //- br
-        //- small 조회수 #{video.meta.views}회 
+    div.video__description
+        h4=video.title
+        ul
+            each hashtag in video.hashtags
+                li=hashtag
+        p=video.description
+        br
+        .video__owner
+            small Uploaded by  
+                a(href=`/users/${video.owner._id}`)=video.owner.name
+        small.video__date #{video.createdAt}
+        br
+        br
+        small 조회수 #{video.meta.views}회 
 
-    //- if String(video.owner._id) === String(loggedInUser._id)
-    //-     .video__btns
-    //-         a(href=`${video._id}/edit` class="video__editBtn") Edit Video &rarr;
-    //-         br
-    //-         a(href=`${video._id}/delete` class="video__deleteBtn") Delete Video &rarr;
+    if String(video.owner._id) === String(loggedInUser._id)
+        .video__btns
+            a(href=`${video._id}/edit` class="video__editBtn") Edit Video &rarr;
+            br
+            a(href=`${video._id}/delete` class="video__deleteBtn") Delete Video &rarr;
 
     script(src="/assets/js/videoPlayer.js") 

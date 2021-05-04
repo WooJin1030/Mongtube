@@ -1,20 +1,66 @@
 .video__player {
-  position: sticky;
-  top: 0;
   margin: auto;
   background-color: black;
-  text-align: center;
 
-  span {
-    color: white;
-  }
-
-  video {
+  .videoContainer {
     width: 100%;
-    height: 100%;
-    max-width: 1000px;
-    max-height: 500px;
+    height: 60vh;
+    position: relative;
+
+    .videoControls {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .videoDivide {
+        display: flex;
+        align-items: center;
+
+        #volume {
+          width: 48px;
+          height: 6px;
+          margin: 0 8px;
+        }
+      }
+
+      button {
+        color: white;
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      #timeLine {
+        position: absolute;
+        bottom: 36px;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        width: 85%;
+        height: 4px;
+      }
+    }
+
+    span {
+      color: white;
+    }
   }
+}
+
+.videoContainer > video {
+  height: 100%;
+  width: 100%;
 }
 
 .video__description {
@@ -76,4 +122,10 @@
   .video__deleteBtn:hover {
     color: red;
   }
+}
+
+.hidden {
+  position: absolute;
+  visibility: hidden;
+  display: none;
 }
