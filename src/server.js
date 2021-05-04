@@ -6,7 +6,6 @@ import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import { localsMiddleware } from "./middlewares/middlewares";
-// import { Mongoose } from "mongoose";
 
 const app = express();
 const logger = morgan("dev");
@@ -39,10 +38,6 @@ app.use(
 // });
 
 app.use(localsMiddleware);
-
-// app.get("/add-one", (req, res, next) => {
-//   return res.send(`${req.session.id}`);
-// });
 
 app.use("/uploads", express.static("uploads"));
 app.use("/assets", express.static("assets"));
