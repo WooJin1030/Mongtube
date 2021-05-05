@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/WooJin1030/Mongtube#readme",
   "dependencies": {
+    "@ffmpeg/core": "^0.9.0",
+    "@ffmpeg/ffmpeg": "^0.9.8",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.4.1",
     "dotenv": "^8.2.0",
