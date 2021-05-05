@@ -85,8 +85,12 @@ const handleTimeLineChange = (e) => {
   video.currentTime = value;
 };
 
-const handleEndVideo = () => {
+const handleEnded = () => {
   playBtn.innerHTML = "<i class='fas fa-play'></i>";
+
+  fetch(`/api/videos/${videoContainer.dataset.id}/view`, {
+    method: "POST",
+  });
 };
 
 const handleFullScreen = () => {
@@ -131,7 +135,7 @@ volumeRange.addEventListener("input", handleVolumeChange); // change
 video.addEventListener("loadedmetadata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 timeLine.addEventListener("input", handleTimeLineChange);
-video.addEventListener("ended", handleEndVideo);
+video.addEventListener("ended", handleEnded);
 fullScreenBtn.addEventListener("click", handleFullScreen);
 
 videoContainer.addEventListener("mousemove", handleMouseMove);
