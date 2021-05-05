@@ -32,11 +32,11 @@ form {
     color: white;
     padding: 16px;
     cursor: pointer;
-    transition: all 300ms ease-in;
-  }
+    transition: transform 300ms ease-in;
 
-  input[type="submit"]:hover {
-    transform: scale(1.1);
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .githubLogin {
@@ -60,10 +60,9 @@ form {
 
   a {
     color: $lightgrey;
-    transition: all 300ms ease-in;
-  }
-
-  a:hover {
-    color: black;
+    transition: color 300ms ease-in;
+    &:hover {
+      color: black;
+    }
   }
 }
