@@ -1,7 +1,7 @@
 mixin video(video)
     div.video-block
         div.video-block__video
-            video(src="/" + video.fileUrl)
+            img(src=video.thumbUrl)
             .video-block__video__data
                 .video-block__video__img
                     img(src=`${video.owner.avatarUrl}`)  
