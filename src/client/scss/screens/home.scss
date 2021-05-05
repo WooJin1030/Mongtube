@@ -1,9 +1,14 @@
 .home__container {
-  .video-block {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
+  li {
+    list-style: none;
+    font-size: 36px;
+  }
+
+  .video-block {
     .video-block__video {
       margin-right: 48px;
       margin-bottom: 48px;
