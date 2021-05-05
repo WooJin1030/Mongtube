@@ -12,10 +12,18 @@ const handleDownload = () => {
   a.download = "MyRecording.mp4";
   document.body.appendChild(a);
   a.click();
+
+  startBtn.innerText = "Show Record Screen";
+  startBtn.style.backgroundColor = "black";
+  video.src = null;
+
+  startBtn.removeEventListener("click", handleDownload);
+  startBtn.addEventListener("click", handleCamera);
 };
 
 const handleStop = () => {
   startBtn.innerText = "Download Recording";
+  startBtn.style.backgroundColor = "blue";
   startBtn.removeEventListener("click", handleStop);
   startBtn.addEventListener("click", handleDownload);
 
@@ -24,6 +32,7 @@ const handleStop = () => {
 
 const handleStart = () => {
   startBtn.innerText = "Stop Recording";
+  startBtn.style.backgroundColor = "red";
   startBtn.removeEventListener("click", handleStart);
   startBtn.addEventListener("click", handleStop);
 
@@ -33,15 +42,16 @@ const handleStart = () => {
     videoFile = URL.createObjectURL(e.data);
     video.srcObject = null;
     video.src = videoFile;
-    // video.loop = true;
-    // video.play();
+    video.loop = true;
+    video.play();
   };
 
   recorder.start();
 };
 
 // npm i regenerator-runtime
-const init = async () => {
+
+const handleCamera = async () => {
   stream = await navigator.mediaDevices.getUserMedia({
     audio: true,
     video: true,
@@ -49,8 +59,11 @@ const init = async () => {
 
   video.srcObject = stream;
   video.play();
+
+  startBtn.innerText = "Start Recording";
+  startBtn.style.backgroundColor = "green";
+  startBtn.removeEventListener("click", handleCamera);
+  startBtn.addEventListener("click", handleStart);
 };
 
-init();
-
-startBtn.addEventListener("click", handleStart);
+startBtn.addEventListener("click", handleCamera);

@@ -1,9 +1,9 @@
 extends base
 
 block content
-    div 
-        video#preview
-        button#startBtn Start Recording
+    div.video__recorder 
+        video#preview(width="700", height="370")
+        button#startBtn Show Record Screen
     .form__errorMessage
         if errorMessage 
             span=errorMessage

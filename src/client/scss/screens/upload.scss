@@ -1,0 +1,19 @@
+.video__recorder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  video {
+    background-color: black;
+    margin-bottom: 24px;
+    border-radius: 8px;
+  }
+  button {
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 8px;
+    cursor: pointer;
+  }
+}
