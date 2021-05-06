@@ -54,7 +54,8 @@ block content
                     li.video__comment(data-id=comment._id)
                         i.fas.fa-comment
                             |  #{comment.text}
-                        span  X
+                        if loggedInUser._id == comment.owner
+                            span.deleteBtn  ✖️
 
     script(src="/assets/js/videoPlayer.js") 
     script(src="/assets/js/commentSection.js") 

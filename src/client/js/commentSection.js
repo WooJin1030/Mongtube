@@ -4,6 +4,33 @@ import fetch from "node-fetch";
 const videoContainer = document.querySelector(".videoContainer");
 const form = document.querySelector("#commentForm");
 
+const deleteComment = (videoComment) => {
+  videoComment.remove();
+};
+
+const handleDelete = async (e) => {
+  const videoComment = e.target.parentNode;
+  const commentId = videoComment.dataset.id;
+
+  const response = await fetch(`/api/videos/comment/${commentId}`, {
+    method: "DELETE",
+  });
+
+  const status = response.status;
+  if (status === 200) {
+    deleteComment(videoComment);
+  }
+};
+
+const findDeleteBtn = () => {
+  const deleteBtn = document.querySelectorAll(".deleteBtn");
+  if (deleteBtn) {
+    deleteBtn.forEach((btn) => btn.addEventListener("click", handleDelete));
+  } else {
+    console.log("no!");
+  }
+};
+
 const addComment = (text, id) => {
   const ul = document.querySelector(".video__comments-ul");
   const li = document.createElement("li");
@@ -14,11 +41,14 @@ const addComment = (text, id) => {
   li.className = "video__comment";
   i.className = "fas fa-comment";
   i.innerText = ` ${text}`;
-  span.innerText = ` X`;
+  span.innerText = ` ✖️`;
+  span.className = "deleteBtn";
 
   li.appendChild(i);
   li.appendChild(span);
   ul.prepend(li);
+
+  findDeleteBtn();
 };
 
 const handleSubmit = async (e) => {
@@ -44,14 +74,14 @@ const handleSubmit = async (e) => {
   const status = response.status;
 
   if (status === 201) {
+    textarea.value = "";
     const json = await response.json();
     const id = json.newCommentId;
     addComment(text, id);
   }
-
-  textarea.value = "";
 };
 
 if (form) {
   form.addEventListener("submit", handleSubmit);
+  findDeleteBtn();
 }
