@@ -1,16 +1,10 @@
 # Mongtube
 
-/
-/join
-/login
-/search
+Login and See & Upload Videos
 
-/users/:id
-/users/logout
-/users/edit
-/users/delete
+## Skills
 
-/videos/:id
-/videos/:id/edit
-/videos/:id/delete
-/videos/upload
+- Vanilla Javascript
+- Node.js, Express
+- Mongo DB
+- Pug, SCSS
