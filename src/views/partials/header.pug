@@ -14,7 +14,7 @@ header
                     a(href="/users/edit") Edit Profile
                 li 
                     a(href=`/users/${loggedInUser._id}`)
-                        img(src="loggedInUser.avatarUrl") 
+                        img(src=`${loggedInUser.avatarUrl}`) 
             else
                 li 
                     a(href="/join") Join
