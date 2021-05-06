@@ -27,6 +27,12 @@
     &:last-child {
       margin-right: 16px;
 
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+
       li {
         margin-right: 32px;
         transition: transform 300ms ease-in;
