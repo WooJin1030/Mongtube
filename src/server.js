@@ -17,6 +17,7 @@ app.set("views", process.cwd() + "/src/views");
 
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // comment text를 req.body로 인식 하게한다.
 
 app.use(
   session({
