@@ -7,18 +7,19 @@
   .header__column {
     display: flex;
     font-size: 24px;
+    font-weight: 700;
     padding: 32px 0;
-    color: $mongcolor;
-
-    .header__title {
-      font-size: 32px;
-    }
+    color: $headercolor;
+    align-items: center;
 
     &:first-child {
       margin-left: 24px;
-      i {
-        margin-right: 4px;
-        color: black;
+      img {
+        width: 80px;
+        height: 75px;
+      }
+
+      .header__title {
         font-size: 32px;
       }
     }
@@ -31,7 +32,7 @@
         transition: transform 300ms ease-in;
 
         a {
-          color: $mongcolor;
+          color: $headercolor;
           transition: color 300ms ease-in;
 
           &:hover {
