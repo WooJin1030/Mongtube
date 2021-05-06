@@ -46,12 +46,14 @@ block content
     if loggedIn
         div.video__add-comments
             form.video__comments-form#commentForm
-                textarea(cols="30", rows="10", placeholder="Write comments...")
+                textarea(cols="30", rows="5", placeholder="Write comments...")
                 button Add Comment
         div.video__comments
-            ul 
+            ul.video__comments-ul 
                 each comment in video.comments.reverse()
-                    li.video__comment=comment.text
+                    li.video__comment
+                        i.fas.fa-comment
+                            |    #{comment.text}
 
     script(src="/assets/js/videoPlayer.js") 
     script(src="/assets/js/commentSection.js") 

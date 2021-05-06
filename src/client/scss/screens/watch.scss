@@ -107,20 +107,21 @@
 .video__btns {
   display: flex;
   margin: 24px;
-  font-size: 24px;
+  font-size: 16px;
+  margin-bottom: 48px;
   .video__editBtn {
     margin-right: 8px;
     transition: all 300ms ease-in;
-  }
-  .video__editBtn:hover {
-    color: blue;
+    &:hover {
+      color: blue;
+    }
   }
 
   .video__deleteBtn {
     transition: all 300ms ease-in;
-  }
-  .video__deleteBtn:hover {
-    color: red;
+    &:hover {
+      color: red;
+    }
   }
 }
 
@@ -128,4 +129,41 @@
   position: absolute;
   visibility: hidden;
   display: none;
+}
+
+.video__add-comments {
+  .video__comments-form {
+    button {
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+      background-color: black;
+      color: white;
+      padding: 8px 36px;
+      border-radius: 8px;
+    }
+    textarea {
+      border-radius: 8px;
+      border: 2px solid black;
+      &::placeholder {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.video__comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .video__comments-ul {
+    margin-top: 18px;
+    .video__comment {
+      background-color: $mongcolor;
+      color: white;
+      margin: 12px 0;
+      padding: 8px 36px;
+      border-radius: 8px;
+    }
+  }
 }
